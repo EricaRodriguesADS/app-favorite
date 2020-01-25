@@ -1,0 +1,85 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+build_dev
+data
+.env
+.firebase
+*.rej
+
+# Python
+*.pyc
+*.blend1
+*.blend2
+blender_exec
+tmp
+
+# testing
+coverage
+
+# production
+dist
+functions/dist
+functions/tools/data
+community/functions/dist
+community/web/dist
+
+# misc
+*.cache.*
+.docz
+cache
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.firebase
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+.vscode
+
+# Parcel.js
+.cache
+web/.cache
+
+temp
+
+# symlinks
+web/src/classes/User.ts
+functions/src/classes/User.ts
+web/src/classes/Sign.ts
+functions/src/classes/Sign.ts
+functions/src/services/errors.ts
+web/src/services/errors.ts
+functions/src/services/types.ts
+web/src/services/types.ts
+functions/src/services/logger.ts
+web/src/services/logger.ts
+
+community/web/src/services/errors.ts
+community/web/src/services/logger.ts
+community/web/src/services/types.ts
+community/web/src/types/community.d.ts
+community/functions/src/services/errors.ts
+community/functions/src/services/logger.ts
+community/functions/src/services/types.ts
+community/functions/src/types/community.d.ts
+
+# Quebrado por enquanto...
+# community/web/src/documents/base.ts
+# community/functions/src/documents/base.ts
+# community/functions/src/documents/workspace.ts
+# community/web/src/documents/workspace.ts
+# community/web/src/documents/video.ts
+# community/functions/src/documents/video.ts
+# community/web/src/documents/user.ts
+# community/functions/src/documents/user.ts
+# community/web/src/documents/oralLanguage.ts
+# community/functions/src/documents/oralLanguage.ts
+# community/web/src/documents/signLanguage.ts
+# community/functions/src/documents/signLanguage.ts
