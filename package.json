@@ -1,0 +1,37 @@
+{
+  "name": "app-favorite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf .cache && rm -rf dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run clean && parcel build ./src/index.html --public-url / --out-dir dist --no-source-maps",
+    "start": "npm run clean && parcel serve ./src/index.html --out-dir dist --open --no-autoinstall",
+    "deploy": "firebase deploy --only hosting:production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/dom-mediacapture-record": "^1.0.2",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-helmet": "^5.0.15",
+    "antd": "^3.26.7",
+    "firebase": "^7.7.0",
+    "jest": "^25.1.0",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-firebaseui": "^4.1.0",
+    "react-helmet": "^5.2.1",
+    "react-scripts": "^3.3.0",
+    "styled-components": "^5.0.0",
+    "typescript": "^3.7.5",
+    "wouter": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^4.4.2"
+  }
+}
