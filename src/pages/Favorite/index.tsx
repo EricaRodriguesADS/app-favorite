@@ -8,7 +8,7 @@ interface IFavoriteProps {
 
 const Favorite: React.FC<IFavoriteProps> = () => {
   return (
-    <LayoutMain title='Favorito'>
+    <LayoutMain requireAuth title='Favorito'>
       <Row type="flex" justify="center">
         <Col span={8}>
            <h1 style={{ textAlign:'center' }}>Encontrução a página de favorito :)</h1>     
