@@ -25,7 +25,6 @@ interface IHomeProps {
 
 
 const Home: React.FC<IHomeProps> = () => {
-  const { Meta } = Card;
   return (
     <LayoutMain title='Home'>   
       <Row type="flex" justify="center">
