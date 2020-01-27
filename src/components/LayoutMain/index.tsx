@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Redirect } from 'wouter'
-
+import { fbAuth } from '../../services/firebase'
 import LayoutMain from './Pure'
 import Menu from '../Menu'
 import { routes } from '../../store'
-import useAuth from '../../services/hooks/useAuth'
 
 interface IControlledLayout {
   title: string
@@ -12,21 +11,32 @@ interface IControlledLayout {
   requireUnauth?: boolean
 }
 
+/**
+ * @param children
+ * @param title
+ * @param requireAuth 
+ * @param requireAuth
+ * */
 const ControlledLayout: React.FC<IControlledLayout> = ({
   children,
   title,
   requireAuth,
-  requireUnauth,
 }) => {
-  const [auth] = useAuth()
-
-  if (requireAuth && !auth.isLoggedIn) {
+  const[ starting, setStarting] = useState(true);
+ 
+  if (requireAuth && !fbAuth.currentUser) {
     return <Redirect to={routes.auth} />
   }
 
-  if (requireUnauth && !!auth.isLoggedIn) {
-    return <Redirect to={routes.home} />
-  }
+  useEffect(()=>{
+    setTimeout(()=>{
+      setStarting(false)
+    }, 500)
+    
+    return() => setStarting(true)
+  },[])
+
+  if(starting) return(<div>Carregando...</div>)
 
   return (
     <LayoutMain menu={<Menu/>} title={title}>
