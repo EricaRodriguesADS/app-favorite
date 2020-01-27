@@ -1,8 +1,8 @@
-import React from 'react'
-
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+
 import firebase, { fbAuth } from '../services/firebase'
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import { routes } from '../store'
 import LayoutMain from '../components/LayoutMain'
 
@@ -20,7 +20,7 @@ const uiConfig = {
     },
   },
   signInFlow: 'popup',
-  signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID],
+  signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
 }
 
 interface IAuthProps {
@@ -28,10 +28,26 @@ interface IAuthProps {
 }
 
 const Auth: React.FC<IAuthProps> = () => {
+  const [isLoggedIn ,setIsLoggedIn] = useState(false);
+  const [text, setText] = useState("Login");
+
+  useEffect(() => {
+    fbAuth.onAuthStateChanged((user)=>{
+      setIsLoggedIn(!!user)
+    })
+
+    if(isLoggedIn) setText('Perfil')
+    else setText('Login')
+  },[isLoggedIn])
+
   return (
-    <LayoutMain title="Login" requireUnauth>
+    <LayoutMain title={text}>
       <FullScreenGrid >
-        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={fbAuth} />
+      {isLoggedIn ?<span>
+            <h1>Olá {fbAuth.currentUser?.displayName}</h1>
+            <button onClick={() =>fbAuth.signOut()}>Não é você? Sair</button>
+          </span> :
+          <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={fbAuth} />}
       </FullScreenGrid>
     </LayoutMain>
   )
