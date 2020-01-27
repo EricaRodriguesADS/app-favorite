@@ -5,7 +5,7 @@ import AppWrapper from './components/AppWrapper';
 import Home from './pages/Home';
 import Category from './pages/Category';
 import Favorite from './pages/Favorite';
-// import Auth from './pages/Auth';
+import Auth from './pages/Auth';
 import NotFound from './pages/NotFound';
 
 export const routes = {
@@ -21,7 +21,7 @@ const App = () => (
     <Home path={routes.home} />
     <Category path={routes.category} />
     <Favorite path={routes.favorite} />
-    {/* <Auth path={routes.auth} /> */}
+    <Auth path={routes.auth} />
     <NotFound path={routes.notFound} />
   </AppWrapper>
 )
