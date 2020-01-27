@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Row, Col } from 'antd';
-import { Card } from 'antd';
+import { Row, Col, Card } from 'antd';
 import 'antd/dist/antd.css';
 
 import LayoutMain from '../../components/LayoutMain'
