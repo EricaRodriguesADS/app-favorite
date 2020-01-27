@@ -30,7 +30,7 @@ const MenuItem: FC<IMenuItem> = ({stateKeys, onClickItem, customMenu}) => {
          onClick={()=> onClickItem(customMenu.route) }>
          {customMenu.titulo} 
         </Menu.Item>
-        : <>oi </>
+        : <> </>
       }
     </Menu>
   )
